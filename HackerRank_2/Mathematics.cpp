@@ -732,5 +732,21 @@ int Mathematics::LinearAlgebraFoundations_7()
 
 int Mathematics::ShashankAndList()
 {
+	sTestManager* sm = new sTestManager();
+	sm->GetInput();
+
+	int numValues = atoi(sm->GetLine().c_str());
+
+	vector<int> theValues(numValues);
+
+	stringstream ss(sm->GetLine());
+
+	for (int i = 0; i < numValues; ++i)
+	{
+		ss.clear();
+
+		ss >> theValues[i];
+	}
+
 
 }
