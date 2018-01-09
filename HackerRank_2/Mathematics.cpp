@@ -10,6 +10,7 @@
 #include <cmath>
 #include <algorithm>
 
+#include <thread>
 Mathematics::Mathematics()
 {
 }
@@ -556,15 +557,15 @@ int Mathematics::DiwaliLights()
 		int numLights;
 		cin >> numLights;
 
-		long long numCombos = 0;
+		int theResult = 1;
 
 		for (int i = 1; i <= numLights; ++i)
 		{
-			numCombos += Utilities::N_Choose_M(numLights, i) % 10;
-			numCombos = numCombos % 10;
+			theResult *= 2;
+			theResult = theResult % 100000;
 		}
 
-		cout << numCombos << endl;
+		cout << theResult - 1 << endl;
 
 		++tc;
 	}
@@ -748,5 +749,73 @@ int Mathematics::ShashankAndList()
 		ss >> theValues[i];
 	}
 
+	return 0;
+}
 
+#include <bitset>
+#include "threadSafeSingleton.h"
+
+void SpecialMultiple_t(int M)
+{
+	int maxInt = INT_MAX;
+
+	if (M == 1)
+	{
+		threadSafeSingleton::GetInst()->print(9);
+		return;
+	}
+
+	char my_val[33];
+	my_val[32] = '\0';
+
+	for (int i = 1; i < maxInt; ++i)
+	{
+		std::bitset<32>      x(i);
+
+		int a = 0;
+		for (int a = 0; a < 32; ++a)
+		{
+			if (x[a] == 1)
+			{
+				my_val[31 - a] = '9';
+			}
+			else
+			{
+				my_val[31 - a] = '0';
+			}
+		}
+
+		long r = atol(my_val);
+
+		if (r % M == 0)
+		{
+			//cout << r << endl;
+			threadSafeSingleton::GetInst()->print(r);
+			break;
+		}
+	}
+}
+
+int Mathematics::SpecialMultiple()
+{
+	int N;
+
+	N = threadSafeSingleton::GetInst()->getInt();
+
+	vector<thread*>myThreads;
+
+	for (int tc = 1; tc <= N; ++tc)
+	{
+		int M;
+		M = threadSafeSingleton::GetInst()->getInt();
+
+		myThreads.push_back(new std::thread(SpecialMultiple_t, M));
+	}
+
+	for (int i = 0; i < myThreads.size(); ++i)
+	{
+		myThreads[i]->join();
+	}
+
+	return 0;
 }

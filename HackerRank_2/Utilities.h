@@ -40,6 +40,8 @@ public:
 
 	static void sort(vector<int>& v);
 	static bool isSorted(vector<int>& v);
+	static void sort(vector<string>& v);
+	static bool isSorted(vector<string>& v);
 
 	static int isElementOf(vector<dataWrapper*>& v, int theData);
 

@@ -151,6 +151,7 @@
     <ClInclude Include="List.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="NumberTheory.h" />
+    <ClInclude Include="threadSafeSingleton.h" />
     <ClInclude Include="Tries.h" />
     <ClInclude Include="Mathematics.h" />
     <ClInclude Include="Stacks.h" />
@@ -183,6 +184,7 @@
     <ClCompile Include="sTestManager.cpp" />
     <ClCompile Include="TestManager.cpp" />
     <ClCompile Include="ThirtyDaysOfCode.cpp" />
+    <ClCompile Include="threadSafeSingleton.cpp" />
     <ClCompile Include="Trees.cpp" />
     <ClCompile Include="Tries.cpp" />
     <ClCompile Include="Utilities.cpp" />
