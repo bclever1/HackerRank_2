@@ -395,7 +395,6 @@ void Mathematics::BestDivisor()
 {
 	int n;
 	cin >> n;
-	int theDivisor;
 
 	vector<int>theDivisors;
 
@@ -415,13 +414,13 @@ void Mathematics::BestDivisor()
 	int theMax = -1;
 	int theBestDivisor = 0;
 
-	for (int div = 0; div < theDivisors.size(); ++div)
+	for (unsigned int div = 0; div < theDivisors.size(); ++div)
 	{
 		//cout << theDivisors[div] << endl;
 		vector<int> theDigits = Utilities::GetDigits(theDivisors[div]);
 
 		int theSum = 0;
-		for (int j = 0; j < theDigits.size(); ++j)
+		for (unsigned int j = 0; j < theDigits.size(); ++j)
 		{
 			theSum += theDigits[j];
 		}
@@ -717,8 +716,7 @@ int Mathematics::LinearAlgebraFoundations_7()
 
 	for (int i = 1; i <= 999; ++i)
 	{
-		M2 = MatrixOps::Multiply(M2, A);
-	}
+		M2 = MatrixOps::Multiply(M2, A);	}
 
 	for (int i = 0; i < M2.my_N; ++i)
 	{
@@ -745,10 +743,32 @@ int Mathematics::ShashankAndList()
 	for (int i = 0; i < numValues; ++i)
 	{
 		ss.clear();
-
 		ss >> theValues[i];
 	}
 
+  vector<vector<int>> theSubsets = Utilities::findAllSubsets(theValues);
+
+	long long sublist_sum = 0;
+	long long special_sum = 0;
+
+	long long theModulus = 1000000007;
+	long long two = 2;
+
+	for (unsigned int i = 0; i < theSubsets.size(); ++i)
+	{
+		sublist_sum = 0;
+		for (unsigned int j = 0; j < theSubsets[i].size(); ++j)
+		{
+			sublist_sum += theSubsets[i][j];
+			sublist_sum = sublist_sum % theModulus;
+		}
+
+		sublist_sum = Utilities::modpow(two, sublist_sum, theModulus);
+		special_sum += sublist_sum;
+		special_sum = special_sum % theModulus;
+	}
+
+	cout << special_sum << endl;
 	return 0;
 }
 
