@@ -14,5 +14,7 @@ public:
 	void Exceptions();
 	void QueuesAndStacks();
 	void RunningTimeAndComplexity();
+	int Regex();
+	int BitwiseAnd();
 };
 

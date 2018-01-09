@@ -27,5 +27,6 @@ public:
 	int LinearAlgebraFoundations_5();
 	int LinearAlgebraFoundations_7();
 	int ShashankAndList();
+	int SpecialMultiple();
 };
 

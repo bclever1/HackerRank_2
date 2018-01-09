@@ -104,17 +104,44 @@ void Utilities::sort(vector<int>& v)
 
 
 //-----------------------------------------------------------//
+bool Utilities::isSorted(vector<string>& v)
+{
+	for (unsigned int i = 0; i < v.size() - 1; ++i)
+	{
+		if (v[i] > v[i + 1]) return false;
+	}
+
+	return true;
+}
+
 bool Utilities::isSorted(vector<int*>& v)
 {
 	for (unsigned int i = 0; i < v.size() - 1; ++i)
 	{
 		if ((*v[i]) > (*v[i + 1])) return false;
 		if ((*v[i] == *v[i + 1]) && (v[i] > v[i + 1])) return false;
-		
-	}
+  }
+  return true;
+}
+    
+//-----------------------------------------------------------//
+void Utilities::sort(vector<string>& v)
+{
+	if (v.size() == 0) return;
 
-	return true;
-
+	string temp = "";
+  while (!Utilities::isSorted(v))
+	{
+		for (unsigned int i = 0; i < v.size() - 1; ++i)
+		{
+      if (v[i] > v[i + 1])
+			{
+				temp = v[i];
+				v[i] = v[i + 1];
+				v[i + 1] = temp;
+      }
+    }
+  }
 }
 
 //-----------------------------------------------------------//
@@ -141,12 +168,11 @@ void Utilities::sort(vector<int*>& v)
 					temp = v[i];
 					v[i] = v[i + 1];
 					v[i + 1] = (int*)temp;
-				}
+        }
 			}
 		}
 	}
 }
-
 
 //-----------------------------------------------------------//
 int Utilities::isElementOf(vector<dataWrapper*>& v, int theData)
@@ -245,7 +271,7 @@ vector<int> Utilities::GetDigits(int a)
 
 	string theStringRep = to_string(a);
 
-	for (unsigned int i = 0; i < theStringRep.length(); ++i)
+	for (unsigned i = 0; i < theStringRep.length(); ++i)
 	{
 		v.push_back(theStringRep[i] - 48);
 	}

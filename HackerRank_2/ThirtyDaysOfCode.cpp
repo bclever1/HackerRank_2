@@ -7,6 +7,7 @@
 #include <map>
 #include <vector>
 #include <deque>
+#include <regex>
 
 ThirtyDaysOfCode::ThirtyDaysOfCode()
 {
@@ -41,7 +42,7 @@ void ThirtyDaysOfCode::LetsReview()
 
 		ss[0] >> theString;
 
-		for (int i = 0; i < theString.length(); ++i)
+		for (unsigned i = 0; i < theString.length(); ++i)
 		{
 			if (i % 2 == 0)
 				cout << theString[i];
@@ -281,7 +282,7 @@ void ThirtyDaysOfCode::QueuesAndStacks()
 	Solution obj;
 
 	// push/enqueue all the characters of string s to stack.
-	for (int i = 0; i < s.length(); i++) {
+	for (unsigned i = 0; i < s.length(); i++) {
 		obj.pushCharacter(s[i]);
 		obj.enqueueCharacter(s[i]);
 	}
@@ -354,4 +355,105 @@ void ThirtyDaysOfCode::RunningTimeAndComplexity()
 
 		++tc;
 	}
+}
+
+class phonebookEntry
+{
+public:
+	phonebookEntry(string& theName, string& theEmail)
+	{
+		name = theName;
+		email = theEmail;
+	}
+
+	string name;
+	string email;
+};
+
+int ThirtyDaysOfCode::Regex()
+{
+#if 0
+	std::string s("this subject has a submarine as a subsequence");
+	std::smatch m;
+	std::regex e("\\b(sub)([^ ]*)");   // matches words beginning by "sub"
+
+	std::cout << "Target sequence: " << s << std::endl;
+	std::cout << "Regular expression: /\\b(sub)([^ ]*)/" << std::endl;
+	std::cout << "The following matches and submatches were found:" << std::endl;
+
+	while (std::regex_search(s, m, e)) {
+		for (auto x : m) std::cout << x << " ";
+		std::cout << std::endl;
+		s = m.suffix().str();
+	}
+#endif
+
+	int N;
+	cin >> N;
+
+	vector<phonebookEntry*>myPhonebook;
+	vector<string>mySearchResults;
+
+
+	for (int a0 = 0; a0 < N; a0++) {
+		string firstName;
+		string emailID;
+		cin >> firstName >> emailID;
+
+		myPhonebook.push_back(new phonebookEntry(firstName, emailID));
+	}
+
+	std::smatch m;
+	std::regex e("\\b(@gmail.com)([^ ]*)");
+	
+	for (unsigned i = 0; i < myPhonebook.size(); ++i)
+	{
+		std::string s(myPhonebook[i]->email);
+		if (std::regex_search(s, m, e))
+		{
+			//std::cout << s << std::endl;
+			mySearchResults.push_back(myPhonebook[i]->name);
+		}
+	}
+
+	Utilities::sort(mySearchResults);
+
+	for (int i = 0; i < mySearchResults.size(); ++i)
+	{
+		std::cout << mySearchResults[i] << std::endl;
+	}
+
+	return 0;
+}
+
+int ThirtyDaysOfCode::BitwiseAnd()
+{
+	int N;
+	cin >> N;
+
+	for (int tc = 0; tc < N; ++tc)
+	{
+		int S, K;
+		cin >> S;
+		cin >> K;
+
+		unsigned max = 0;
+
+		for (unsigned i = 1; i < S; ++i)
+		{
+			for (unsigned j = i + 1; j <= S; ++j)
+			{
+				unsigned R = (unsigned)i & (unsigned)j;
+				if (R > max && R < K)
+				{
+					max = R;
+				}
+				//std::cout << R << std::endl;
+			}
+		}
+
+		std::cout << max << std::endl;
+	}
+
+	return 0;
 }
