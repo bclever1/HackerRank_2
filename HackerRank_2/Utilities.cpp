@@ -37,23 +37,6 @@ void Utilities::displayVector(vector<int>& theVector)
 }
 
 //-----------------------------------------------------------//
-void Utilities::displayVector(vector<int*>& theVector)
-{
-	cout << endl;
-	for (unsigned int i = 0; i < theVector.size(); ++i)
-	{
-		cout << *theVector[i];
-
-		if (i < theVector.size() - 1)
-		{
-			cout << " ";
-		}
-	}
-
-	cout << endl;
-}
-
-//-----------------------------------------------------------//
 void Utilities::displayStack(deque<int>& theStack)
 {
 	for (unsigned int i = 0; i < theStack.size(); ++i)
@@ -112,63 +95,25 @@ bool Utilities::isSorted(vector<string>& v)
 	}
 
 	return true;
+
 }
 
-bool Utilities::isSorted(vector<int*>& v)
-{
-	for (unsigned int i = 0; i < v.size() - 1; ++i)
-	{
-		if ((*v[i]) > (*v[i + 1])) return false;
-		if ((*v[i] == *v[i + 1]) && (v[i] > v[i + 1])) return false;
-  }
-  return true;
-}
-    
 //-----------------------------------------------------------//
 void Utilities::sort(vector<string>& v)
 {
 	if (v.size() == 0) return;
 
 	string temp = "";
-  while (!Utilities::isSorted(v))
-	{
-		for (unsigned int i = 0; i < v.size() - 1; ++i)
-		{
-      if (v[i] > v[i + 1])
-			{
-				temp = v[i];
-				v[i] = v[i + 1];
-				v[i + 1] = temp;
-      }
-    }
-  }
-}
-
-//-----------------------------------------------------------//
-void Utilities::sort(vector<int*>& v)
-{
-	if (v.size() == 0) return;
-
-	void* temp = 0;
 
 	while (!Utilities::isSorted(v))
 	{
 		for (unsigned int i = 0; i < v.size() - 1; ++i)
 		{
-			if ((*v[i]) > (*v[i + 1]))
+			if (v[i] > v[i + 1])
 			{
 				temp = v[i];
 				v[i] = v[i + 1];
-				v[i + 1] = (int*)temp;
-			}
-			else if ((*v[i]) == (*v[i + 1]))
-			{
-				if (v[i] > v[i + 1])
-				{
-					temp = v[i];
-					v[i] = v[i + 1];
-					v[i + 1] = (int*)temp;
-        }
+				v[i + 1] = temp;
 			}
 		}
 	}
@@ -182,21 +127,6 @@ int Utilities::isElementOf(vector<dataWrapper*>& v, int theData)
 		if (v[i]->myData == theData)
 		{
 			return i;
-		}
-	}
-
-	return -1;
-}
-
-
-//-----------------------------------------------------------//
-int Utilities::isElementOf(vector<int*>& v, int* theData)
-{
-	for (unsigned int i = 0; i < v.size(); ++i)
-	{
-		if (v[i] == theData)
-		{
-			return true;
 		}
 	}
 
@@ -277,107 +207,4 @@ vector<int> Utilities::GetDigits(int a)
 	}
 
 	return v;
-}
-
-//-----------------------------------------------------------//
-vector<vector<int*>> Utilities::generateAllSubsets(vector<int*>& theBaseSet)
-{
-	vector<vector<int*>> theResult;
-
-	if (theBaseSet.size() == 1)
-	{
-		vector<int*> theSingleUnit(1);
-		theSingleUnit[0] = theBaseSet[0];
-		theResult.push_back(theSingleUnit);
-		return theResult;
-	}
-
-	// For each element in theBaseSet, generate all subsets without the element
-	// For each of these, add the excluded element, and then merge the two groups of subsets.
-
-	for (unsigned int i = 0; i < theBaseSet.size(); ++i)
-	{
-		// Make a vector that excludes this element of the base set
-
-		vector<int*>theVectorWithExcludedElement;
-
-		for (unsigned int j = 0; j < theBaseSet.size(); ++j)
-		{
-			if (j != i)
-			{
-				theVectorWithExcludedElement.push_back(theBaseSet[j]);
-			}
-		}
-
-		vector<vector<int*>>allSubsetsWithoutElement = generateAllSubsets(theVectorWithExcludedElement);
-		vector<vector<int*>>addElementToSubsets(allSubsetsWithoutElement.size());
-
-		for (unsigned int k = 0; k < allSubsetsWithoutElement.size(); ++k)
-		{
-			for (int q = 0; q < allSubsetsWithoutElement[k].size(); ++q)
-			{
-				addElementToSubsets[k].push_back(allSubsetsWithoutElement[k][q]);
-
-				if (Utilities::isElementOf(addElementToSubsets[k], theBaseSet[i]) == -1)
-				{
-					addElementToSubsets[k].push_back(theBaseSet[i]);
-				}
-			}
-
-			theResult.push_back(allSubsetsWithoutElement[k]);
-			theResult.push_back(addElementToSubsets[k]);
-		}
-	}
-
-	return theResult;
-}
-
-vector<vector<int>> Utilities::findAllSubsets(vector<int>& theBaseSet)
-{
-	vector<int*> theWorkingSet(theBaseSet.size());
-	for (int i = 0; i < theBaseSet.size(); ++i)
-	{
-		theWorkingSet[i] = &theBaseSet[i];
-	}
-
-	vector<vector<int*>>theSubsets = generateAllSubsets(theWorkingSet);
-
-	// Remove all the duplicates
-
-	for (unsigned int i = 0; i < theSubsets.size(); ++i)
-	{
-		Utilities::sort(theSubsets[i]);
-	}
-
-	vector<vector<int*>>theUniqueSubsets;
-	theUniqueSubsets.push_back(theSubsets[0]);
-
-	for (unsigned int i = 1; i < theSubsets.size(); ++i)
-	{
-		bool found = false;
-		for (unsigned int j = 0; j < theUniqueSubsets.size(); ++j)
-		{
-			if (theSubsets[i] == theUniqueSubsets[j])
-			{
-				found = true;
-				break;
-			}
-		}
-
-		if (found == false)
-		{
-			theUniqueSubsets.push_back(theSubsets[i]);
-		}
-	}
-
-	vector<vector<int>> theResult(theUniqueSubsets.size());
-	for (int i = 0; i < theResult.size(); ++i)
-	{
-		for (int j = 0; j < theUniqueSubsets[i].size(); ++j)
-		{
-		    theResult[i].push_back(*(theUniqueSubsets[i][j]));
-	    }
-	}
-
-	return theResult;
 }

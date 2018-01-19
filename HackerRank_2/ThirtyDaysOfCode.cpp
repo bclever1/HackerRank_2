@@ -457,3 +457,40 @@ int ThirtyDaysOfCode::BitwiseAnd()
 
 	return 0;
 }
+
+#include <cstdlib>
+
+int ThirtyDaysOfCode::Testing()
+{
+	int numCases = 5;
+
+	cout << "print('" << numCases << "')" << endl;
+	for (int tc = 1; tc <= numCases; ++tc)
+	{
+		// Pick a random number n between 3 and 200
+		// Pick a threshold k between 1 and 200
+		// For each n pick a random number a between -1000 and 1000
+		int n = rand() % 197 + 3;
+		int k = rand() % n + 1;
+
+		std::cout << "print('" <<  n << " " << k << "')" << std::endl;
+
+		std::cout << "print('" << 0 << " ";
+		for (int j = 2; j <= n; ++j)
+		{
+			int a_j;
+			a_j = rand() % 1000 + 1;
+
+			if (j % 2 == 0)
+			{
+				a_j *= -1;
+			}
+
+			std::cout << a_j << " ";
+		}
+
+		std::cout << "')" << endl;
+	}
+
+	return 0;
+}
