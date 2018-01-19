@@ -16,5 +16,6 @@ public:
 	void RunningTimeAndComplexity();
 	int Regex();
 	int BitwiseAnd();
+	int Testing();
 };
 

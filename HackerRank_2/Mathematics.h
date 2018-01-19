@@ -28,5 +28,6 @@ public:
 	int LinearAlgebraFoundations_7();
 	int ShashankAndList();
 	int SpecialMultiple();
+	int RussianPeasantExponents();
 };
 
