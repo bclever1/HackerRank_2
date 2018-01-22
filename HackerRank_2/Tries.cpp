@@ -114,7 +114,7 @@ void Tries::Contacts()
 		}
 		else if (theCommand == "find")
 		{
-			cout << find(theParam, myBuckets) << endl;
+			std::cout << find(theParam, myBuckets) << endl;
 		}
 	}
 }

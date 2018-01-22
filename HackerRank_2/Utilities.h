@@ -15,8 +15,8 @@ public:
 	Utilities();
 	~Utilities();
 
-	static void displayVector(vector<int>& theVector);
-	static void displayStack(deque<int>& theStack);
+	static void display(vector<int>& theVector);
+	static void display(deque<int>& theStack);
 
 	static bool isPairedChar(char theLChar, char theRChar)
 	{
@@ -43,6 +43,10 @@ public:
 	static void sort(vector<string>& v);
 	static bool isSorted(vector<string>& v);
 
+	static void sort(deque<int>& v);
+	static bool isSorted(deque<int>& v);
+
+
 	static int isElementOf(vector<dataWrapper*>& v, int theData);
 
 	static int getMaxElement(vector<int>& v, int lower, int upper);
@@ -55,5 +59,7 @@ public:
 	static int GCD(int, int);
 
 	static vector<int> GetDigits(int n);
+
+	static void orderedInsertAt(deque<int>& d, int pos1, int pos2, int theVal);
 };
 

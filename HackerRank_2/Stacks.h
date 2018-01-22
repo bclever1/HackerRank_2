@@ -49,8 +49,8 @@ void Stacks<T>::BalancedBrackets()
 			}
 		}
 
-		if (myStack.size() != 0) cout << "NO" << endl;
-		else cout << "YES" << endl;
+		if (myStack.size() != 0) std::cout << "NO" << endl;
+		else std::cout << "YES" << endl;
 	}
 }
 
@@ -173,7 +173,7 @@ void Stacks<T>::EqualStacks()
 		}
 	}
 
-	cout << theMaxHeight << endl;
+	std::cout << theMaxHeight << endl;
 }
 
 
@@ -265,22 +265,22 @@ void Stacks<T>::GameOfTwoStacks()
 			--stack1Picks;
 		}
 
-		cout << maxPicks << endl;
+		std::cout << maxPicks << endl;
 
 		stringstream theResult;
 		theResult << maxPicks;
 
-		cout << "Max score: " << maxVal << endl;
+		std::cout << "Max score: " << maxVal << endl;
 
 		if (tm->compareResult(g, theResult.str()))
 		{
-			cout << "PASSED!" << endl;
+			std::cout << "PASSED!" << endl;
 		}
 		else
 		{
-			cout << "FAILED!! Test case: " << g << endl;
+			std::cout << "FAILED!! Test case: " << g << endl;
 
-			cout << "Max score: " << maxVal << endl;
+			std::cout << "Max score: " << maxVal << endl;
 
 			u.displayVector(stack_1);
 			u.displayVector(stack_2);
@@ -334,7 +334,7 @@ void Stacks<T>::MaximumElement()
 		}
 		else if (ss_params.str()[0] == '3')
 		{
-			cout << myMax << endl;
+			std::cout << myMax << endl;
 		}
 	}
 }

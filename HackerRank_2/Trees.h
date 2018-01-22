@@ -204,13 +204,13 @@ void Trees<T>::SwapNodes(string theTestCaseFile)
 
 		if (tm->compareResult(testCase, theResult))
 		{
-			cout << "PASSED!" << endl;
+			std::cout << "PASSED!" << endl;
 		}
 		else
 		{
-			cout << "FAILED!!" << endl;
+			std::cout << "FAILED!!" << endl;
 		}
-		//cout << endl;
+		//std::cout << endl;
 
 		++testCase;
 	}

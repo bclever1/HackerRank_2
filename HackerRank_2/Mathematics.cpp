@@ -42,7 +42,7 @@ void Mathematics::FindThePoint()
 		int newX = x2 + diffX;
 		int newY = y2 + diffY;
 
-		cout << newX << " " << newY << endl;
+		std::cout << newX << " " << newY << endl;
 	}
 }
 
@@ -71,7 +71,7 @@ void Mathematics::MaximumDraws()
 			++picks;
 		}
 
-		cout << picks << endl;
+		std::cout << picks << endl;
 	}
 }
 
@@ -93,7 +93,7 @@ void Mathematics::Handshakes()
 
 		ss >> numPeopleInRoom;
 
-		cout << numPeopleInRoom * (numPeopleInRoom - 1) / 2 << endl;
+		std::cout << numPeopleInRoom * (numPeopleInRoom - 1) / 2 << endl;
 	}
 }
 
@@ -121,10 +121,10 @@ void Mathematics::MinimumHeightTriangle()
 		{
 			calc = 2 * h / base;
 
-			cout << h << " " << base << " " << area << " " << calc << endl;
+			std::cout << h << " " << base << " " << area << " " << calc << endl;
 			if (.5 * base * h >= area)
 			{
-				cout << h; 
+				std::cout << h; 
 				break;
 			}
 			++h;
@@ -149,28 +149,28 @@ void Mathematics::ArmyGame()
 		int n, m;
 		ss >> n >> m;
 
-		cout << n << " " << m << endl;
+		std::cout << n << " " << m << endl;
 
 		if (n % 2 == 0)
 		{
 			if (m % 2 == 0)
 			{
-				cout << n / 2 * m / 2 << endl;
+				std::cout << n / 2 * m / 2 << endl;
 			}
 			else
 			{
-				cout << n / 2 * (m / 2 + 1) << endl;
+				std::cout << n / 2 * (m / 2 + 1) << endl;
 			}
 		}
 		else
 		{
 			if (m % 2 == 0)
 			{
-				cout << (n / 2 + 1) * m / 2 << endl;
+				std::cout << (n / 2 + 1) * m / 2 << endl;
 			}
 			else
 			{
-				cout << (n / 2 + 1) * (m / 2 + 1) << endl;
+				std::cout << (n / 2 + 1) * (m / 2 + 1) << endl;
 			}
 
 		}
@@ -216,7 +216,7 @@ void Mathematics::PrimeFactors()
 			}
 		}
 
-		cout << factorCount << endl;
+		std::cout << factorCount << endl;
 		//stringstream result;
 		//result << factorCount;
 		//tm->compareResult(tc-1, result.str());
@@ -263,7 +263,7 @@ void Mathematics::ConnectingTowns()
 			totalRoutes = totalRoutes % 1234567;
 		}
 
-		cout << totalRoutes << endl;
+		std::cout << totalRoutes << endl;
 	}
 
 }
@@ -296,7 +296,7 @@ void Mathematics::CuttingPaperSquares()
 		long long totalCuts = 0;
 		
 		totalCuts = (n - 1) + n * (m - 1);
-		cout << totalCuts << endl;
+		std::cout << totalCuts << endl;
 	//}
 }
 
@@ -325,13 +325,13 @@ void Mathematics::SummingTheNSeries()
 
 		if (theN % 2 == 0)
 		{
-			cout << ((theN % tenToThe9) * (theN % tenToThe9)) % tenToThe9 << endl;
+			std::cout << ((theN % tenToThe9) * (theN % tenToThe9)) % tenToThe9 << endl;
 
 		}
 		else
 		{
 			long long intermediate = (((theN - 1) % tenToThe9) * ((theN - 1 ) % tenToThe9)) % tenToThe9;
-			cout << (intermediate + 2 * theN - 1) % tenToThe9 << endl;
+			std::cout << (intermediate + 2 * theN - 1) % tenToThe9 << endl;
 		}
 	}
 }
@@ -382,10 +382,10 @@ void Mathematics::nCrTable()
 				}
 				if (line == N - 1)
 				{
-					cout << array[line][i] << " ";
+					std::cout << array[line][i] << " ";
 				}
 			}
-			cout << endl;
+			std::cout << endl;
 
 		}
 	}
@@ -417,7 +417,7 @@ void Mathematics::BestDivisor()
 
 	for (int div = 0; div < theDivisors.size(); ++div)
 	{
-		//cout << theDivisors[div] << endl;
+		//std::cout << theDivisors[div] << endl;
 		vector<int> theDigits = Utilities::GetDigits(theDivisors[div]);
 
 		int theSum = 0;
@@ -433,7 +433,7 @@ void Mathematics::BestDivisor()
 		}
 	}
 
-	cout << theBestDivisor << endl;
+	std::cout << theBestDivisor << endl;
 }
 
 void Mathematics::Restaurant()
@@ -450,14 +450,14 @@ void Mathematics::Restaurant()
 
 		if (a == b)
 		{
-			cout << 1 << endl;
+			std::cout << 1 << endl;
 		}
 
 		else
 		{
 			int theGcd = Utilities::GCD(a, b);
 
-			cout << (a / theGcd) * (b / theGcd) << endl;
+			std::cout << (a / theGcd) * (b / theGcd) << endl;
 		}
 	}
 }
@@ -485,15 +485,15 @@ int Mathematics::SherlockAndMovingTiles()
 
 		double t = ((sqrt(area) / cos(PI / 4)) - sqrt(2) * L) / (S1 - S2);
 
-		cout << fixed;
+		std::cout << fixed;
 
 		if (t >= 0)
 		{
-			cout << t << endl;
+			std::cout << t << endl;
 		}
 		else
 		{
-			cout << -1 * t << endl;
+			std::cout << -1 * t << endl;
 		}
 		++tc;
 
@@ -539,7 +539,7 @@ int Mathematics::SherlockAndDivisors()
 		it = unique(theDivisors.begin(), theDivisors.end());          
 		theDivisors.resize(std::distance(theDivisors.begin(), it));
 
-		cout << theDivisors.size() << endl;
+		std::cout << theDivisors.size() << endl;
 	}
 
 	return 0;
@@ -565,7 +565,7 @@ int Mathematics::DiwaliLights()
 			theResult = theResult % 100000;
 		}
 
-		cout << theResult - 1 << endl;
+		std::cout << theResult - 1 << endl;
 
 		++tc;
 	}
@@ -590,7 +590,7 @@ int Mathematics::LinearAlgebraFoundations_1()
 	{
 		for (int j = 0; j < M.my_M; ++j)
 		{
-			cout << M.myValues[i][j] << endl;
+			std::cout << M.myValues[i][j] << endl;
 		}
 	}
 
@@ -616,7 +616,7 @@ int Mathematics::LinearAlgebraFoundations_2()
 	{
 		for (int j = 0; j < M2.my_M; ++j)
 		{
-			cout << M2.myValues[i][j] << endl;
+			std::cout << M2.myValues[i][j] << endl;
 		}
 	}
 
@@ -641,7 +641,7 @@ int Mathematics::LinearAlgebraFoundations_3()
 	{
 		for (int j = 0; j < M2.my_M; ++j)
 		{
-			cout << M2.myValues[i][j] << endl;
+			std::cout << M2.myValues[i][j] << endl;
 		}
 	}
 
@@ -666,7 +666,7 @@ int Mathematics::LinearAlgebraFoundations_4()
 	{
 		for (int j = 0; j < M2.my_M; ++j)
 		{
-			cout << M2.myValues[i][j] << endl;
+			std::cout << M2.myValues[i][j] << endl;
 		}
 	}
 
@@ -695,7 +695,7 @@ int Mathematics::LinearAlgebraFoundations_5()
 	{
 		for (int j = 0; j < M2.my_M; ++j)
 		{
-			cout << M2.myValues[i][j] << endl;
+			std::cout << M2.myValues[i][j] << endl;
 		}
 	}
 
@@ -724,7 +724,7 @@ int Mathematics::LinearAlgebraFoundations_7()
 	{
 		for (int j = 0; j < M2.my_M; ++j)
 		{
-			cout << M2.myValues[i][j] << endl;
+			std::cout << M2.myValues[i][j] << endl;
 		}
 	}
 
@@ -789,7 +789,7 @@ void SpecialMultiple_t(int M)
 
 		if (r % M == 0)
 		{
-			//cout << r << endl;
+			//std::cout << r << endl;
 			threadSafeSingleton::GetInst()->print(r);
 			break;
 		}

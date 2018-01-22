@@ -38,22 +38,22 @@ void NumberTheory::ClosestNumber()
 			++multiple;
 		}
 
-		//cout << "Here multiple of x: " << multiple * x << endl;
+		//std::cout << "Here multiple of x: " << multiple * x << endl;
 		long one_less = (multiple - 1) * x;
 		long exact    = (multiple) * x;
 		long one_more = (multiple + 1) * x;
 
 		if (abs(one_less - a_to_the_b) < abs(exact - a_to_the_b))
 		{
-			cout << one_less << endl;
+			std::cout << one_less << endl;
 		}
 		else if (abs(one_more - a_to_the_b) < abs(exact - a_to_the_b))
 		{
-			cout << one_more << endl;
+			std::cout << one_more << endl;
 		}
 		else
 		{
-			cout << exact << endl;
+			std::cout << exact << endl;
 		}
 
 	}
@@ -125,12 +125,12 @@ void NumberTheory::SherlockAndGCD()
 		label:
 		if (found1 == true)
 		{
-			cout << "YES" << endl;
+			std::cout << "YES" << endl;
 			//Utilities::displayVector(theSubset);
 		}
 		else
 		{
-			cout << "NO" << endl;
+			std::cout << "NO" << endl;
 		}
 	}
 }

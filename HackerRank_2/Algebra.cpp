@@ -42,7 +42,7 @@ int Algebra::LittleGauravAndSequence()
 			for (int j = 0; j <= n; ++j)
 			{
 #if DEBUG
-				cout << "i,j: " << i << ", " << j << endl;
+				std::cout << "i,j: " << i << ", " << j << endl;
 #endif
 
 				int theExp = pow(2, i) + 2 * j;
@@ -52,7 +52,7 @@ int Algebra::LittleGauravAndSequence()
 				theTermSum = theTermSum % 10;
 
 #if DEBUG
-				cout << "    theTermSum: " << theTermSum << endl;
+				std::cout << "    theTermSum: " << theTermSum << endl;
 #endif
 
 			}
@@ -64,11 +64,11 @@ int Algebra::LittleGauravAndSequence()
 		}
 
 #if DEBUG
-		cout << "The total summation: "  << theSum << endl;
+		std::cout << "The total summation: "  << theSum << endl;
 #endif
 
 		string theSumString = to_string(theSum);
-		cout << theSumString[theSumString.length()-1] << endl;
+		std::cout << theSumString[theSumString.length()-1] << endl;
 		
 		++tc;
 	}
