@@ -20,7 +20,7 @@ TestManager::TestManager(string theFileName)
 
 	if (!myInFile)
 	{
-		cout << "File does not exist." << endl;
+		std::cout << "File does not exist." << endl;
 		return;
 	}
 
@@ -100,19 +100,19 @@ bool TestManager::compareResult(unsigned int theTestNum, string theResult)
 		return true;
 	}
 
-	cout << "Expected result: " << endl;
-	cout << myExpectedResults[theTestNum] << endl;
-	cout << "Your result: " << endl;
-	cout << theResult << endl;
+	std::cout << "Expected result: " << endl;
+	std::cout << myExpectedResults[theTestNum] << endl;
+	std::cout << "Your result: " << endl;
+	std::cout << theResult << endl;
 
-	cout << "Your result length: " << theResult.length() << " EXP length: " << myExpectedResults[theTestNum].length() << endl;
+	std::cout << "Your result length: " << theResult.length() << " EXP length: " << myExpectedResults[theTestNum].length() << endl;
 
 	for (int i = 0; i < min(theResult.length(), myExpectedResults[theTestNum].length()); ++i)
 	{
 		if (myExpectedResults[theTestNum][i] != theResult[i])
 		{
-			cout << "They differ at position: " << i << endl;
-			cout << "    theResult[i]:" << theResult[i] << ", " << "myExpectedResults[theTestNum][i]: " << myExpectedResults[theTestNum][i] << endl;
+			std::cout << "They differ at position: " << i << endl;
+			std::cout << "    theResult[i]:" << theResult[i] << ", " << "myExpectedResults[theTestNum][i]: " << myExpectedResults[theTestNum][i] << endl;
 			break;
 		}
 	}

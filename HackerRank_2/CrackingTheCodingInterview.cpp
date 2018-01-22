@@ -39,7 +39,7 @@ int getComboValue(map<vector<int>,int>& theCache, vector<int>& combo, int subset
 
 		if (it != theCache.end())
 		{
-			cout << "cache hit!!!" << endl;
+			std::cout << "cache hit!!!" << endl;
 			return it->second;
 		}
 
@@ -132,7 +132,7 @@ void CrackingTheCodingInterview::CoinChange()
 		}
 
 		theResults = make_change(values, numDollars);
-		cout << theResults << endl;
+		std::cout << theResults << endl;
 	}
 }
 
@@ -169,7 +169,7 @@ void CrackingTheCodingInterview::LonelyInteger()
 	for (int a_i = 0; a_i < n; a_i++) {
 		cin >> a[a_i];
 	}
-	cout << lonely_integer(a) << endl;
+	std::cout << lonely_integer(a) << endl;
 }
 
 void CrackingTheCodingInterview::IceCreamParlor()
@@ -209,7 +209,7 @@ void CrackingTheCodingInterview::IceCreamParlor()
 			{
 				if (ic1[i] + ic2[j] == dollars)
 				{
-					cout << i + 1 << " " << j + 1 << endl;
+					std::cout << i + 1 << " " << j + 1 << endl;
 					found = true;
 					break;
 				}

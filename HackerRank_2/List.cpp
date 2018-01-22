@@ -63,11 +63,11 @@ void List::displayList(Node* head)
 	Node* node = head;
 	while (node != 0)
 	{
-		cout << node->data << " ";
+		std::cout << node->data << " ";
 		node = node->next;
 	}
 
-	cout << endl;
+	std::cout << endl;
 }
 
 /*==================================================*/
@@ -133,7 +133,7 @@ void List::ReversePrint(Node* head)
 
 	for (int i = theResult.size() - 1; i >= 0; --i)
 	{
-		cout << theResult[i] << endl;
+		std::cout << theResult[i] << endl;
 	}
 }
 

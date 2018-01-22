@@ -45,18 +45,18 @@ void ThirtyDaysOfCode::LetsReview()
 		for (unsigned i = 0; i < theString.length(); ++i)
 		{
 			if (i % 2 == 0)
-				cout << theString[i];
+				std::cout << theString[i];
 		}
 
-		cout << " ";
+		std::cout << " ";
 
 		for (int i = 0; i < theString.length(); ++i)
 		{
 			if (i % 2 == 1)
-				cout << theString[i];
+				std::cout << theString[i];
 		}
 
-		cout << endl;
+		std::cout << endl;
 	}
 }
 
@@ -109,11 +109,11 @@ void ThirtyDaysOfCode::DictionariesAndMaps()
 
 			if (it != myDictionary.end())
 			{
-				cout << it->first << "=" << it->second << endl;
+				std::cout << it->first << "=" << it->second << endl;
 			}
 			else
 			{
-				cout << "Not found" << endl;
+				std::cout << "Not found" << endl;
 
 			}
 			//theQuery = tm->GetLine();
@@ -134,7 +134,7 @@ void ThirtyDaysOfCode::Recursion()
 	int theInput;
 	cin >> theInput;
 
-	cout << factorial(theInput) << endl;
+	std::cout << factorial(theInput) << endl;
 }
 
 
@@ -169,8 +169,8 @@ void ThirtyDaysOfCode::BinaryNumbers()
 		}
 	}
 
-	cout << theOutput << endl;
-	cout << consecutive1s << endl;
+	std::cout << theOutput << endl;
+	std::cout << consecutive1s << endl;
 }
 
 
@@ -225,7 +225,7 @@ void ThirtyDaysOfCode::TwoDArrays()
 			++rowCount;
 		}
 
-		cout << maxHourglass << endl;
+		std::cout << maxHourglass << endl;
 	}
 }
 
@@ -240,7 +240,7 @@ void ThirtyDaysOfCode::Exceptions()
 	}
 	catch (...)
 	{
-		cout << "Bad string" << endl;
+		std::cout << "Bad string" << endl;
 	}
 
 }
@@ -302,10 +302,10 @@ void ThirtyDaysOfCode::QueuesAndStacks()
 
 	// finally print whether string s is palindrome or not.
 	if (isPalindrome) {
-		cout << "The word, " << s << ", is a palindrome.";
+		std::cout << "The word, " << s << ", is a palindrome.";
 	}
 	else {
-		cout << "The word, " << s << ", is not a palindrome.";
+		std::cout << "The word, " << s << ", is not a palindrome.";
 	}
 }
 
@@ -346,11 +346,11 @@ void ThirtyDaysOfCode::RunningTimeAndComplexity()
 		}
 		if (foundFactor == true)
 		{
-			cout << "Not primne" << endl;
+			std::cout << "Not primne" << endl;
 		}
 		else
 		{
-			cout << "Prime" << endl;
+			std::cout << "Prime" << endl;
 		}
 
 		++tc;
@@ -464,7 +464,7 @@ int ThirtyDaysOfCode::Testing()
 {
 	int numCases = 5;
 
-	cout << "print('" << numCases << "')" << endl;
+	std::cout << "print('" << numCases << "')" << endl;
 	for (int tc = 1; tc <= numCases; ++tc)
 	{
 		// Pick a random number n between 3 and 200

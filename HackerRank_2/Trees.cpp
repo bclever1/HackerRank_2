@@ -69,7 +69,7 @@ public:
 
 	void display()
 	{
-		cout << "lVal: " << lVal << ", rVal: " << rVal << " ";
+		std::cout << "lVal: " << lVal << ", rVal: " << rVal << " ";
 	}
 };
 

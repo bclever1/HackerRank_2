@@ -156,12 +156,12 @@ void Statistics::MeanMedianMode()
 		ss >> theData[i];
 	}
 
-	cout << fixed;
-	cout << setprecision(1);
-	cout << mean(theData) << endl;
-	cout << median(theData) << endl;
-	cout << setprecision(0);
-	cout << mode(theData) << endl;
+	std::cout << fixed;
+	std::cout << setprecision(1);
+	std::cout << mean(theData) << endl;
+	std::cout << median(theData) << endl;
+	std::cout << setprecision(0);
+	std::cout << mode(theData) << endl;
 
 }
 
@@ -192,9 +192,9 @@ void Statistics::WeightedMean()
 		ss2 >> theWeights[i];
 	}
 
-	cout << fixed;
-	cout << setprecision(1);
-	cout << weighted_mean(theData,theWeights) << endl;
+	std::cout << fixed;
+	std::cout << setprecision(1);
+	std::cout << weighted_mean(theData,theWeights) << endl;
 }
 
 //------------------------------------------------//
@@ -249,9 +249,9 @@ void Statistics::Quartiles()
 	int secondQuartile = median(theData);
 	int thirdQuartile  = median(theUpperHalf);
 
-	cout << firstQuartile << endl;
-	cout << secondQuartile << endl;
-	cout << thirdQuartile << endl;
+	std::cout << firstQuartile << endl;
+	std::cout << secondQuartile << endl;
+	std::cout << thirdQuartile << endl;
 }
 
 //------------------------------------------------//
@@ -328,9 +328,9 @@ void Statistics::InterQuartileRange()
 	float thirdQuartile = median(theUpperHalf);
 
 	theResult = thirdQuartile - firstQuartile;
-	cout << fixed;
-	cout << setprecision(1);
-	cout << theResult << endl;
+	std::cout << fixed;
+	std::cout << setprecision(1);
+	std::cout << theResult << endl;
 
 }
 
@@ -355,9 +355,9 @@ void Statistics::StandardDeviation()
 
 	theResult = standard_dev(theDataPoints);
 
-	cout << fixed;
-	cout << setprecision(1);
-	cout << theResult;
+	std::cout << fixed;
+	std::cout << setprecision(1);
+	std::cout << theResult;
 }
 
 //------------------------------------------------//
@@ -374,9 +374,9 @@ void Statistics::BinomialDistributionI()
 		prob += Utilities::N_Choose_M(6, i) * pow(pBoy, i) * pow(pGirl, 6 - i);
 	}
 
-	cout << fixed;
-	cout << setprecision(3);
-	cout << prob << endl;;
+	std::cout << fixed;
+	std::cout << setprecision(3);
+	std::cout << prob << endl;;
 
 }
 
@@ -397,9 +397,9 @@ void Statistics::BinomialDistributionII()
 		prob += Utilities::N_Choose_M(10, i) * pow(pFail, i) * pow(pGood, 10 - i);
 	}
 
-	cout << fixed;
-	cout << setprecision(3);
-	cout << prob << endl;;
+	std::cout << fixed;
+	std::cout << setprecision(3);
+	std::cout << prob << endl;;
 
 	prob = 0.0;
 
@@ -409,9 +409,9 @@ void Statistics::BinomialDistributionII()
 		prob += Utilities::N_Choose_M(10, i) * pow(pFail, i) * pow(pGood, 10 - i);
 	}
 
-	cout << fixed;
-	cout << setprecision(3);
-	cout << prob << endl;;
+	std::cout << fixed;
+	std::cout << setprecision(3);
+	std::cout << prob << endl;;
 
 }
 
@@ -423,9 +423,9 @@ void Statistics::GeometricDistributionI()
 
 	float prob = pow(1 - probDefect, 4) * probDefect;
 
-	cout << fixed;
-	cout << setprecision(3);
-	cout << prob << endl;;
+	std::cout << fixed;
+	std::cout << setprecision(3);
+	std::cout << prob << endl;;
 }
 
 //------------------------------------------------//
@@ -441,9 +441,9 @@ void Statistics::GeometricDistributionII()
 		prob += pow(1 - probDefect, i - 1) * probDefect;
 	}
 
-	cout << fixed;
-	cout << setprecision(3);
-	cout << prob << endl;;
+	std::cout << fixed;
+	std::cout << setprecision(3);
+	std::cout << prob << endl;;
 }
 
 //------------------------------------------------//
@@ -453,7 +453,7 @@ void Statistics::PoissonDistributionI()
 	int k = 5;
 
 	float e = 2.71828;
-	cout << pow(lambda, k) * exp(-1 * lambda) / Utilities::factorial(k);
+	std::cout << pow(lambda, k) * exp(-1 * lambda) / Utilities::factorial(k);
 }
 
 
@@ -466,8 +466,8 @@ void Statistics::PoissonDistributionII()
 	float cA = 160 + 40 * ((lambdaA + lambdaA * lambdaA));
 	float cB = 128 + 40 * ((lambdaB + lambdaB * lambdaB));
 
-	cout << cA << endl;
-	cout << cB << endl;
+	std::cout << cA << endl;
+	std::cout << cB << endl;
 }
 
 //------------------------------------------------//
@@ -485,10 +485,10 @@ void Statistics::NormalDistributionI()
 	double theResult2 = cumulativeProb(mean, stdev, x[1]) - \
 		                cumulativeProb(mean, stdev, x[2]);
 
-	cout << fixed;
-	cout << setprecision(3);
-	cout << theResult1 << endl;
-	cout << theResult2 << endl;
+	std::cout << fixed;
+	std::cout << setprecision(3);
+	std::cout << theResult1 << endl;
+	std::cout << theResult2 << endl;
 
 }
 
@@ -499,12 +499,12 @@ void Statistics::NormalDistributionII()
 	double mean = 70;
 	double stdev = 10;
 
-	cout << fixed;
-	cout << setprecision(2);
+	std::cout << fixed;
+	std::cout << setprecision(2);
 	
-	cout << 100 * (1 - cumulativeProb(mean, stdev, 80)) << endl;
-	cout << 100 * (1 - cumulativeProb(mean, stdev, 60)) << endl;
-	cout << 100 * (cumulativeProb(mean, stdev, 60)) << endl;
+	std::cout << 100 * (1 - cumulativeProb(mean, stdev, 80)) << endl;
+	std::cout << 100 * (1 - cumulativeProb(mean, stdev, 60)) << endl;
+	std::cout << 100 * (cumulativeProb(mean, stdev, 60)) << endl;
 }
 
 double Statistics::cumulativeProb(double mean, double stdev, double theValue)
